@@ -1,3 +1,11 @@
+"""Generador de datos de ejemplo en formato CSV.
+
+Este módulo solicita al usuario el número de registros, el nombre del
+fichero de salida y el rango de salario. A partir de datos de muestra
+(nombres, apellidos, categorías profesionales y ciudades) genera un fichero
+CSV con registros aleatorios para perfiles del sector programación.
+"""
+
 import random
 
 # Lista de 20 nombres (masculinos y femeninos)

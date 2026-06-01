@@ -1,3 +1,10 @@
+"""Generador de datos de empleados para SQLite.
+
+Este módulo crea una base de datos SQLite con una tabla de empleados
+y rellena registros aleatorios según parámetros de usuario. Incluye
+clases, utilidades de conexión e inserción masiva.
+"""
+
 import time
 import random
 import sqlite3
