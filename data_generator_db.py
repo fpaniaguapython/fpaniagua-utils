@@ -19,7 +19,7 @@ SALARIO_MAXIMO_DEFAULT = 50_000
 class Empleado:
     nombre : str
     apellidos : str
-    categoria_programacion : str
+    categoria_profesional : str
     ciudad : str
     salario : int
     id: int = None
@@ -47,7 +47,7 @@ ciudades = [
 ]
 
 # Lista de 5 categorías profesionales del sector programación
-categorias_programacion = [
+categorias_profesionales = [
     "Desarrollador Backend",
     "Desarrollador Frontend",
     "Ingeniero de Software",
@@ -65,19 +65,19 @@ def crear_db(conn):
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         nombre TEXT NOT NULL,
         apellidos TEXT NOT NULL,
-        categoria_programacion TEXT NOT NULL,
+        categoria_profesional TEXT NOT NULL,
         ciudad TEXT NOT NULL,
         salario INTEGER NOT NULL
     );""")
     conn.commit()
 
 def __insert(c: sqlite3.Cursor, empleado: Empleado):
-    sql = """INSERT INTO empleados (nombre, apellidos, categoria_programacion, ciudad, salario)
+    sql = """INSERT INTO empleados (nombre, apellidos, categoria_profesional, ciudad, salario)
     VALUES (?, ?, ?, ?, ?)"""
     c.execute(sql, (
         empleado.nombre,
         empleado.apellidos,
-        empleado.categoria_programacion,
+        empleado.categoria_profesional,
         empleado.ciudad,
         empleado.salario
     ))
@@ -110,7 +110,7 @@ if __name__ == "__main__":
         empleado = Empleado(
             nombre=random.choice(nombres),
             apellidos=random.choice(apellidos),
-            categoria_programacion=random.choice(categorias_programacion),
+            categoria_profesional=random.choice(categorias_profesionales),
             ciudad=random.choice(ciudades),
             salario=random.randint(salario_minimo, salario_maximo)
         )        
